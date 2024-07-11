@@ -61,28 +61,5 @@
                 }
             }
         }
-    },
-    {
-        "name": "Update Query 4",
-        "description": "Bar",
-        "type": "update",
-        "content": "Bar desc",
-        "query": {
-            "index": "sample",
-            "body": {
-                "query": {
-                    "match": {
-                        "department": "HR"
-                    }
-                },
-                "script": {
-                    "source": "ctx._source['salary']*=params.val",
-                    "params": {
-                        "val": 1.1
-                    },
-                    "lang": "painless"
-                }
-            }
-        }
     }
 ]
