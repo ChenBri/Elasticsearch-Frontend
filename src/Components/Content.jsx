@@ -1,9 +1,12 @@
 import HomePage from "./HomePage";
-import { CopyBlock, dracula } from 'react-code-blocks';
+import { CodeBlock, dracula } from 'react-code-blocks';
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../Utils/axiosUtils";
 import Header from "./Header";
+import { Button } from "@mui/material";
+
+import MyTable from "./MyTable";
 
 const getAllQuery = {
     "query": {
@@ -24,6 +27,7 @@ const getAllQuery = {
 }
 
 function Content({ currentQuery, currentResult }) {
+    const [toggleView, setToggleView] = useState(true);
 
     const [dataset, setDataset] = useState({});
     useEffect(() => {
@@ -33,12 +37,14 @@ function Content({ currentQuery, currentResult }) {
                     setDataset(response.data.data);
                 })
                 .catch(function (error) {
-                    console.log(error);
+
                     setDataset({});
                 });
         }
         fetchData();
-    }, [])
+    }, []);
+
+
 
     if (Object.keys(currentQuery).length === 0) {
         return (
@@ -53,18 +59,20 @@ function Content({ currentQuery, currentResult }) {
             <div className='w-full py-4 px-24'>
                 <Header header="Dataset:" subHeader={"Employees Sample (Last 10 Hits)"} />
 
-                <CopyBlock
+                <CodeBlock
                     text={JSON.stringify(dataset, undefined, 4)}
                     showLineNumbers={true}
                     theme={dracula}
                     language={"json"}
-                    CopyBlock
+                    codeBlock
                 />
             </div>
         )
     }
 
     let { query } = currentQuery;
+    let { hits } = currentResult;
+    console.log(query);
     return (
         <div className="flex flex-col w-full">
 
@@ -75,23 +83,30 @@ function Content({ currentQuery, currentResult }) {
 
                 <div className="w-[50%]">
                     <div>Query:</div>
-                    <CopyBlock
+                    <CodeBlock
                         text={JSON.stringify(query, undefined, 4)}
                         showLineNumbers={true}
                         theme={dracula}
                         language={"json"}
-                        CopyBlock
+                        codeBlock
                     />
                 </div>
-                <div className="w-full">
+                <div className="w-full relative">
+
                     <div>Result:</div>
-                    <CopyBlock
+                    <div className="absolute -top-4 z-10 right-2">
+                        <Button variant="contained" onClick={() => setToggleView(!toggleView)}>{toggleView ? "Table" : "Code"}</Button>
+                    </div>
+
+                    {toggleView ? <CodeBlock
                         text={JSON.stringify(currentResult, undefined, 4)}
                         showLineNumbers={true}
                         theme={dracula}
                         language={"json"}
-                        CopyBlock
-                    />
+                        codeBlock
+                    /> :
+                        <MyTable hits={hits} />
+                    }
                 </div>
 
 

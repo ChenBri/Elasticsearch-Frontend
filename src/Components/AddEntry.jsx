@@ -1,7 +1,7 @@
 import { TextField, Button } from "@mui/material";
 import { useRef } from "react";
 import api from "./../Utils/axiosUtils";
-import { CopyBlock, dracula } from 'react-code-blocks';
+import { CodeBlock, dracula } from 'react-code-blocks';
 import { useState } from "react";
 
 
@@ -95,23 +95,23 @@ function AddEntry() {
             </div>
             <div className="w-5/12">
                 <div>Code (Javascript):</div>
-                <CopyBlock
+                <CodeBlock
                     text={code}
                     showLineNumbers={true}
                     theme={dracula}
                     language={"js"}
-                    CopyBlock
+                    codeBlock
                     className=""
                 />
             </div>
             <div className="w-5/12">
                 <div>Result:</div>
-                <CopyBlock
+                <CodeBlock
                     text={JSON.stringify(status, undefined, 4)}
                     showLineNumbers={true}
                     theme={dracula}
                     language={"json"}
-                    CopyBlock
+                    codeBlock
                 />
             </div>
 
