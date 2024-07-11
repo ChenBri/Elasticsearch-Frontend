@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-let api = axios.create({ baseURL: 'http://127.0.0.1:3000/'});
+let api = axios.create({ baseURL: 'https://elasticsearch-backend.netlify.app/api/'});
 
 export default api;
