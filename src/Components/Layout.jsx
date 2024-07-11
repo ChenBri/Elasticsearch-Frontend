@@ -2,7 +2,7 @@
 
 function Layout({ children }) {
     return (
-        <div className='flex p-4'>
+        <div className='flex justify-center p-4'>
             {children}
         </div>
     );
