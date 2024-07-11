@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Update Query 1",
+        "description": "conditional update",
+        "type": "update",
+        "content": "How would you update the salary of an employee with ID \"1\" from 58488.49 to 60000.00?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "match": {
+                        "department": "HR"
+                    }
+                },
+                "script": {
+                    "source": "ctx._source['salary']= 60000.00",
+                    "lang": "painless"
+                }
+            }
+        }
+    },
+    {
+        "name": "Update Query 2",
+        "description": "new field",
+        "type": "update",
+        "content": "What query would you use to add a new field \"location\" with the value \"New York\" to the document where the employee ID is \"2\"?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "match": {
+                        "id": 2
+                    }
+                },
+                "script": {
+                    "source": "ctx._source['location']='New York'",
+                    "lang": "painless"
+                }
+            }
+        }
+    },
+    {
+        "name": "Update Query 3",
+        "description": "update all",
+        "type": "update",
+        "content": "Using a script, update the salary of all employees in the \"HR\" department by increasing it by 10%.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "match": {
+                        "department": "HR"
+                    }
+                },
+                "script": {
+                    "source": "ctx._source['salary']*=params.val",
+                    "params": {
+                        "val": 1.1
+                    },
+                    "lang": "painless"
+                }
+            }
+        }
+    }
+]

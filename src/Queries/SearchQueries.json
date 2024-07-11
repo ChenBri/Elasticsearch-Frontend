@@ -1,0 +1,299 @@
+[
+    {
+        "name": "Dataset",
+        "description": "Dataset Sample",
+        "content": "Find all matches",
+        "query": {
+            "index": "sample"
+        }
+    },
+    {
+        "name": "Search Query 1",
+        "description": "match",
+        "content": "Write a query to find all employees with the first name \"David\".",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "match": {
+                        "first_name": "David"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 2",
+        "description": "range",
+        "content": "Write a query to find employees whose salary is greater than 100,000.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "range": {
+                        "salary": {
+                            "gte": 100000
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 3",
+        "description": "bool",
+        "content": "Retrieve employees who are in the \"HR\" department and have a salary less than 50,000.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {
+                                "match": {
+                                    "department": "HR"
+                                }
+                            },
+                            {
+                                "range": {
+                                    "salary": {
+                                        "lte": 50000
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 4",
+        "description": "bool + range",
+        "content": "Retrieve employees who have a job title of \"HR Manager\" or \"Finance Manager\" and have a birthday after January 1, 1990.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {
+                                "bool": {
+                                    "should": [
+                                        {
+                                            "match": {
+                                                "job": "HR Manager"
+                                            }
+                                        },
+                                        {
+                                            "match": {
+                                                "job": "Finance Manager"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "range": {
+                                    "birthday": {
+                                        "gte": "1990-01-01"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 5",
+        "description": "wildcard",
+        "content": "Find employees in the \"Support\" department who have an email address ending with \".org\".",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {
+                                "match": {
+                                    "department": "Support"
+                                }
+                            },
+                            {
+                                "wildcard": {
+                                    "email": {
+                                        "value": "*org"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 6",
+        "description": "fuzzy",
+        "content": "Retrieve documents where the job title contains a term similar to \"Managet\".",
+        "query": {
+            "index": "sample_v2",
+            "body": {
+                "query": {
+                    "bool": {
+                        "must": {
+                            "fuzzy": {
+                                "job": {
+                                    "value": "Managet",
+                                    "fuzziness": "AUTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 7",
+        "description": "filter",
+        "content": "Write an Elasticsearch query that filters employees who have a salary above 115,000 and work in either the \"Sales\" or \"Engineering\" department.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "bool": {
+                        "must": [
+                            {
+                                "range": {
+                                    "salary": {
+                                        "gte": 115000
+                                    }
+                                }
+                            }
+                        ],
+                        "filter": [
+                            {
+                                "terms": {
+                                    "department": [
+                                        "Sales",
+                                        "Engineering"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 8",
+        "description": "sort",
+        "content": "How would you write an Elasticsearch query to find all documents where the first_name starts with the letters \"A\", or \"B\" and then sort these documents in ascending order by first_name?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "bool": {
+                        "should": [
+                            {
+                                "prefix": {
+                                    "first_name": "A"
+                                }
+                            },
+                            {
+                                "prefix": {
+                                    "first_name": "B"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "sort": [
+                    {
+                        "first_name": {
+                            "order": "asc"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "name": "Search Query 9",
+        "description": "size + from",
+        "content": "How would you write an Elasticsearch query to retrieve the 6th and 7th documents from the sample index, regardless of their content?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "size": 2,
+                "from": 5,
+                "query": {
+                    "match_all": {}
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 10",
+        "description": "avg",
+        "type": "aggs",
+        "content": "How would you write an Elasticsearch query to find the average salary across all departments in the sample index?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "aggs": {
+                    "average": {
+                        "avg": {
+                            "field": "salary"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 11",
+        "description": "min + max",
+        "type": "aggs",
+        "content": "How would you write an Elasticsearch query to find the average salary across all departments in the sample index?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "aggs": {
+                    "min_salary": {
+                        "min": {
+                            "field": "salary"
+                        }
+                    },
+                    "max_salary": {
+                        "max": {
+                            "field": "salary"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 12",
+        "description": "sum",
+        "type": "aggs",
+        "content": "What is the total salary expense across all departments?",
+        "query": {
+            "index": "sample",
+            "body": {
+                "aggs": {
+                    "sum_of_salaries": {
+                        "sum": {
+                            "field": "salary"
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
