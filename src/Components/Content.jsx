@@ -1,5 +1,5 @@
 import HomePage from "./HomePage";
-import { CodeBlock, dracula } from 'react-code-blocks';
+import { CopyBlock, dracula } from 'react-code-blocks';
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "../Utils/axiosUtils";
@@ -53,12 +53,12 @@ function Content({ currentQuery, currentResult }) {
             <div className='w-full py-4 px-24'>
                 <Header header="Dataset:" subHeader={"Employees Sample (Last 10 Hits)"} />
 
-                <CodeBlock
+                <CopyBlock
                     text={JSON.stringify(dataset, undefined, 4)}
                     showLineNumbers={true}
                     theme={dracula}
                     language={"json"}
-                    codeBlock
+                    CopyBlock
                 />
             </div>
         )
@@ -75,22 +75,22 @@ function Content({ currentQuery, currentResult }) {
 
                 <div className="w-[50%]">
                     <div>Query:</div>
-                    <CodeBlock
+                    <CopyBlock
                         text={JSON.stringify(query, undefined, 4)}
                         showLineNumbers={true}
                         theme={dracula}
                         language={"json"}
-                        codeBlock
+                        CopyBlock
                     />
                 </div>
                 <div className="w-full">
                     <div>Result:</div>
-                    <CodeBlock
+                    <CopyBlock
                         text={JSON.stringify(currentResult, undefined, 4)}
                         showLineNumbers={true}
                         theme={dracula}
                         language={"json"}
-                        codeBlock
+                        CopyBlock
                     />
                 </div>
 
