@@ -51,7 +51,7 @@ function Content({ currentQuery, currentResult }) {
 
         return (
             <div className='w-full py-4 px-24'>
-                <Header header="Dataset:" subHeader={"Employees Sample"} />
+                <Header header="Dataset:" subHeader={"Employees Sample (Last 10 Hits)"} />
 
                 <CodeBlock
                     text={JSON.stringify(dataset, undefined, 4)}
