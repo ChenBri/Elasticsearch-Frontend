@@ -5,7 +5,7 @@ import Content from './Components/Content';
 import { useState } from 'react';
 import Layout from './Components/Layout';
 import api from "./Utils/axiosUtils";
-import { Routes, useNavigate } from 'react-router';
+import { Navigate, Routes, useNavigate } from 'react-router';
 import { Route } from 'react-router';
 import HomePage from './Components/HomePage';
 import AddEntry from "./Components/AddEntry";
@@ -52,6 +52,8 @@ console.log("UPDATE");
     <Layout>
       <Navbar changeQuery={changeQuery} updateQuery={updateQuery} changeRoute={changeRoute} />
       <Routes>
+      
+
         <Route
           exact
           path="/"
@@ -68,6 +70,7 @@ console.log("UPDATE");
           element={<AddEntry />}
         />
       </Routes>
+      <Navigate to="/" replace={true} />
     </Layout>
   );
 }
