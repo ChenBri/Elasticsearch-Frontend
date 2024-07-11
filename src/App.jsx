@@ -30,8 +30,8 @@ function App() {
   }
 
   async function updateQuery(query) {
-      setCurrentQuery(query);
-console.log("UPDATE");
+    setCurrentQuery(query);
+    console.log("UPDATE");
     await api.post("/update", query)
       .then(function (response) {
         setCurrentResult(response.data.data);
@@ -52,7 +52,7 @@ console.log("UPDATE");
     <Layout>
       <Navbar changeQuery={changeQuery} updateQuery={updateQuery} changeRoute={changeRoute} />
       <Routes>
-      
+
 
         <Route
           exact
@@ -69,8 +69,12 @@ console.log("UPDATE");
           path="/add"
           element={<AddEntry />}
         />
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />}
+        />
       </Routes>
-      <Navigate to="/" replace={true} />
+
     </Layout>
   );
 }
