@@ -15,12 +15,12 @@ function MyTable({ hits }) {
                         <TableCell>Person</TableCell>
                         <TableCell align="right">ID</TableCell>
                         <TableCell align="right">First Name</TableCell>
-                        <TableCell align="right">Last Name&nbsp;(g)</TableCell>
-                        <TableCell align="right">Gender&nbsp;(g)</TableCell>
-                        <TableCell align="right">Email&nbsp;(g)</TableCell>
-                        <TableCell align="right">Job&nbsp;(g)</TableCell>
-                        <TableCell align="right">Department&nbsp;(g)</TableCell>
-                        <TableCell align="right">Salary&nbsp;(g)</TableCell>
+                        <TableCell align="right">Last Name&nbsp;</TableCell>
+                        <TableCell align="right">Gender&nbsp;</TableCell>
+                        <TableCell align="right">Email&nbsp;</TableCell>
+                        <TableCell align="right">Job&nbsp;</TableCell>
+                        <TableCell align="right">Department&nbsp;</TableCell>
+                        <TableCell align="right">Salary&nbsp;</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
