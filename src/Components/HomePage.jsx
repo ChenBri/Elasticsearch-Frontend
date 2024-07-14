@@ -11,7 +11,7 @@ function HomePage() {
         <div className=" flex flex-col text-left  pl-12 pr-2 font-mono ">
             <Header header="ElasticSearch Queries" subHeader={"By Chen Brilling"} />
 
-            <div className="flex flex-col gap-6 justify-center">
+            <div className="flex flex-col gap-2 justify-center">
 
                 <div className="flex flex-col text-[17px]">
                     <SubHeader text="About:" />
@@ -32,7 +32,7 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="flex flex-row justify-between leading-7">
+                <div className="flex flex-row-reverse justify-between leading-7 items-center">
                     <div className="w-[55%]">
                         <div className="flex gap-4 pb-2">
                             <SubHeader text="Backend (Node.js):" />
@@ -62,7 +62,7 @@ function HomePage() {
                             <a className="break-keep pl-2" href="http://elasticsearchbackend.netlify.app">elasticsearch-backend.netlify.app</a>.
                         </p>
                     </div>
-                    <div className="w-[40%]">
+                    <div className="w-[40%] align-middle">
                         <div className="flex gap-4 pb-2">
                             <SubHeader text="Frontend:" />
                             <GithubLink link="https://github.com/ChenBri/Elasticsearch-Backend" />
