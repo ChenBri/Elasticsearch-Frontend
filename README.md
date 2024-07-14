@@ -1,10 +1,29 @@
-# Getting Started with Create React App
+## About:
+This project is a full-stack application demonstrating different Elasticsearch capabilities, including executing search queries, updating documents, and adding new documents through a custom form.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The website executes various queries, sending requests to a backend connected to Elasticsearch Cloud that I created, and displays the results on the front-end in both JSON format and as a formatted table.
 
-## Available Scripts
+The front-end and back-end are deployed using Netlify, so any change committed to either side is automatically updated and deployed. All queries on the website have been tested using Kibana, the Elasticsearch JavaScript API, and the Elasticsearch Python API. The code can easily be adapted to integrate with any backend, regardless of the programming language.
 
-In the project directory, you can run:
+### Frontend:
+The front-end is developed using React, and React Router, and styled with Material UI and Tailwind CSS. All API calls are made using Axios. The list of queries is generated dynamically, so to add new queries, you only need to update a JSON file with the new data—no code changes are required.
+
+The front-end is also deployed on Netlify and can be accessed at [elasticsearch-frontend.netlify.app](elasticsearch-frontend.netlify.app).
+
+### First Backend (Node.js):
+The backend is built with Node.js using the Express framework. I managed database access through API keys stored as environment variables. The API supports three primary endpoints:
+1. /api/add: Adds a new document to a specified index.
+2. /api/search: Searches within a specified index based on a custom query, script, or aggregation, returning different data depending on the request type using _search.
+3. /api/update: Updates documents that match the provided query using _update_by_query.
+The backend is deployed on Netlify and can be accessed at [elasticsearch-backend.netlify.app](elasticsearch-backend.netlify.app).
+
+ ### Second Backend (Flask):
+ I have developed an additional backend using Flask (Python), which mirrors the functionality of the Node.js backend. This backend supports all relevant API calls and maintains the same format and structured results as the Node.js version. 
+The frontend can work with both backends since I made it so they support the same format and return identically structured results.
+
+
+---
+## How to run:
 
 ### `npm start`
 
@@ -27,31 +46,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+ttps://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
 ### Making a Progressive Web App
 
