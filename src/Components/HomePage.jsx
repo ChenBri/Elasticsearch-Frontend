@@ -2,15 +2,18 @@ import Header from "./Header";
 import SubHeader from "./SubHeader";
 import Footer from "./Footer";
 import Bold from "./Bold";
+import GithubLink from "./GithubLink";
+
 function HomePage() {
 
     return (
 
         <div className=" flex flex-col text-left  pl-12 pr-2 font-mono ">
             <Header header="ElasticSearch Queries" subHeader={"By Chen Brilling"} />
-            <div className="flex flex-col gap-8 text-[18px] justify-center">
 
-                <div className="flex flex-col text-[19px]">
+            <div className="flex flex-col gap-6 justify-center">
+
+                <div className="flex flex-col text-[17px]">
                     <SubHeader text="About:" />
                     <p>
                         This project is a full-stack application demonstrating different Elasticsearch capabilities,
@@ -29,9 +32,12 @@ function HomePage() {
                     </p>
                 </div>
 
-                <div className="flex flex-row justify-between leading-8">
+                <div className="flex flex-row justify-between leading-7">
                     <div className="w-[55%]">
-                        <SubHeader text="Backend:" />
+                        <div className="flex gap-4 pb-2">
+                            <SubHeader text="Backend (Node.js):" />
+                            <GithubLink link="https://github.com/ChenBri/Elasticsearch-Frontend" />
+                        </div>
                         <p>
                             The backend is built with Node.js using the Express framework.
                             I managed database access through API keys stored as environment variables. The API supports three
@@ -57,7 +63,11 @@ function HomePage() {
                         </p>
                     </div>
                     <div className="w-[40%]">
-                        <SubHeader text="Frontend:" />
+                        <div className="flex gap-4 pb-2">
+                            <SubHeader text="Frontend:" />
+                            <GithubLink link="https://github.com/ChenBri/Elasticsearch-Backend" />
+                        </div>
+
                         <p>
                             The front-end is developed using React, and React Router, and styled with Material UI and Tailwind CSS.
                             All API calls are made using Axios. The list of queries is generated dynamically, so to add new queries,
@@ -68,6 +78,17 @@ function HomePage() {
                             <a className="break-keep pl-2" href="http://elasticsearchfrontend.netlify.app">elasticsearch-frontend.netlify.app</a>.
                         </p>
                     </div>
+                </div>
+                <div>
+                    <div className="flex gap-4 pb-2">
+                        <SubHeader text="Backend (Flask):" />
+                        <GithubLink link="https://github.com/ChenBri/Python-Backend" />
+                    </div>
+                    <p>
+                        I have developed an additional backend using Flask (Python), which mirrors the functionality of the Node.js backend.
+                        This backend supports all relevant API calls and maintains the same format and structured results as the Node.js version.
+                        The frontend can work with both backends since I made it so they support the same format and return identically structured results.
+                    </p>
                 </div>
 
             </div>

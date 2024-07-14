@@ -5,7 +5,14 @@
         "content": "Find all matches",
         "query": {
             "index": "sample"
-        }
+        },
+        "sort": [
+            {
+                "id": {
+                    "order": "desc"
+                }
+            }
+        ]
     },
     {
         "name": "Search Query 1",

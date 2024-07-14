@@ -10,7 +10,7 @@ import NetlifyLogo from "./../Logos/netlify.png";
 
 function Footer() {
     return (
-        <div className='flex flex-row justify-evenly pt-12'>
+        <div className='flex flex-row justify-evenly pt-8'>
             <Logo imageSource={ElasticSearchLogo} imageAlt="ElasticSearch Logo" />
             <Logo imageSource={KibanaLogo} imageAlt="Kibana Logo" />
             <Logo imageSource={MaterialUILogo} imageAlt="Material UI Logo" />
