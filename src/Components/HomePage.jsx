@@ -59,7 +59,7 @@ function HomePage() {
                         </ol>
                         <p>
                             The backend is deployed on Netlify and can be accessed at
-                            <a className="break-keep pl-2" href="http://elasticsearchbackend.netlify.app">elasticsearch-backend.netlify.app</a>.
+                            <a className="break-keep pl-2" href="https://elasticsearch-backend.netlify.app">elasticsearch-backend.netlify.app</a>.
                         </p>
                     </div>
                     <div className="w-[40%] align-middle">
@@ -75,7 +75,7 @@ function HomePage() {
                         </p>
                         <p>
                             The front-end is also deployed on Netlify and can be accessed at
-                            <a className="break-keep pl-2" href="http://elasticsearchfrontend.netlify.app">elasticsearch-frontend.netlify.app</a>.
+                            <a className="break-keep pl-2" href="https://elasticsearch-frontend.netlify.app/">elasticsearch-frontend.netlify.app</a>.
                         </p>
                     </div>
                 </div>
