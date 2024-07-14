@@ -31,7 +31,7 @@ function HomePage() {
 
                 <div className="flex flex-row justify-between leading-8">
                     <div className="w-[55%]">
-                        <SubHeader text="Frontend:" />
+                        <SubHeader text="Backend:" />
                         <p>
                             The backend is built with Node.js using the Express framework.
                             I managed database access through API keys stored as environment variables. The API supports three
@@ -57,7 +57,7 @@ function HomePage() {
                         </p>
                     </div>
                     <div className="w-[40%]">
-                        <SubHeader text="Backend:" />
+                        <SubHeader text="Frontend:" />
                         <p>
                             The front-end is developed using React, and React Router, and styled with Material UI and Tailwind CSS.
                             All API calls are made using Axios. The list of queries is generated dynamically, so to add new queries,

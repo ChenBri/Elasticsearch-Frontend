@@ -17,28 +17,28 @@ function App() {
 
   async function changeQuery(query) {
     setCurrentQuery(query);
-    console.log("SEARCH");
+
     await api.post("/search", query)
       .then(function (response) {
         setCurrentResult(response.data.data);
-        console.log(response.data);
+
       })
       .catch(function (error) {
-        console.log(error);
+
         setCurrentResult({});
       });
   }
 
   async function updateQuery(query) {
     setCurrentQuery(query);
-    console.log("UPDATE");
+
     await api.post("/update", query)
       .then(function (response) {
         setCurrentResult(response.data.data);
-        console.log(response.data);
+
       })
       .catch(function (error) {
-        console.log(error);
+
         setCurrentResult({});
       });
   }

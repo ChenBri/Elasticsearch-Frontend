@@ -46,7 +46,6 @@ function AddEntry() {
 
     async function handleSubmit() {
 
-        console.log("Button Pressed");
         let firstName = firstNameRef.current.value;
         let lastName = lastNameRef.current.value;
         let gender = genderRef.current.value;
@@ -68,11 +67,11 @@ function AddEntry() {
             "birthday": new Date(birthday),
             "job": job
         }
-        console.log(entry);
+  
 
         await api.post("/add", entry)
             .then(function (response) {
-                console.log(response.data);
+  
                 setStatus(response.data);
             })
             .catch(function (error) {
