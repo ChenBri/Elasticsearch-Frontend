@@ -302,5 +302,45 @@
                 }
             }
         }
+    },
+    {
+        "name": "Search Query 13",
+        "description": "boosting",
+        "content": "Create a Boosting query to boost the relevance score of documents where the job is \"Sales Manager\" and reduce the relevance score of documents where the job is \"Account Manager\" by a factor of 0.2.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "boosting": {
+                        "positive": {
+                            "match": {
+                                "job": "Sales Manager"
+                            }
+                        },
+                        "negative": {
+                            "match": {
+                                "job": "Account Manager"
+                            }
+                        },
+                        "negative_boost": 0.2
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "Search Query 14",
+        "description": "regexp",
+        "content": "Retrieve all documents where the first_name field matches exactly seven characters.",
+        "query": {
+            "index": "sample",
+            "body": {
+                "query": {
+                    "regexp": {
+                        "first_name": "......."
+                    }
+                }
+            }
+        }
     }
 ]

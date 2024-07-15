@@ -32,7 +32,7 @@ function Navbar({ changeQuery, updateQuery, changeRoute }) {
 
             <ListItem key={"Add Index"} disablePadding>
                 <ListItemButton onClick={() => changeRoute('/add')}>
-                    <ListItemText primary={"Add Index"} />
+                    <ListItemText primary={"Add Index"} secondary="Add new index to the database" />
                 </ListItemButton>
             </ListItem>
 
