@@ -9,6 +9,7 @@ import { Navigate, Routes, useNavigate } from 'react-router';
 import { Route } from 'react-router';
 import HomePage from './Components/HomePage';
 import AddEntry from "./Components/AddEntry";
+import Search from './Components/Search';
 
 function App() {
   const navigate = useNavigate();
@@ -68,6 +69,11 @@ function App() {
           exact
           path="/add"
           element={<AddEntry />}
+        />
+        <Route
+          exact
+          path="/search"
+          element={<Search />}
         />
         <Route
           path="*"

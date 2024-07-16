@@ -38,6 +38,14 @@ function Navbar({ changeQuery, updateQuery, changeRoute }) {
 
             <Divider />
 
+            <ListItem key={"Add Index"} disablePadding>
+                <ListItemButton onClick={() => changeRoute('/search')}>
+                    <ListItemText primary={"Search"} secondary="Free search of indexes" />
+                </ListItemButton>
+            </ListItem>
+
+            <Divider />
+
             <List>
                 {searchQueries.map((query, index) => (
 
