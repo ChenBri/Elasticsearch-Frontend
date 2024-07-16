@@ -51,7 +51,7 @@ function Search() {
         <>
             <div className="flex flex-col w-full mx-12">
 
-                <Header header="Search:" subHeader={"Search for any term/index."} />
+                <Header header="Search:" subHeader={"Search for any term/index (case-sensitive)."} />
 
                 <div className="border-2 p-6 flex justify-center mx-auto">
                     <TextField className="self-center" id="search" label="Search" variant="standard" inputRef={searchRef} onChange={handleChange} />
