@@ -84,7 +84,10 @@ function Search() {
 
 
                         :
-                        <div className="text-center text-2xl pt-12">No result was found.</div>}
+                        <>
+                            <div className="text-center text-2xl pt-12">No result was found.</div>
+                            <div className="text-center text-md pt-2 text-gray-400">Try to search for terms such as "HR"/"Anna".</div>
+                        </>}
 
                 </div>
 
